@@ -1,0 +1,162 @@
+. What is MongoDB? Explain non-relational databases in short. In which scenarios it is preferred to use MongoDB over SQL databases?
+MongoDB is a popular document-oriented, NoSQL (non-relational) database management system. It provides a flexible and scalable approach to storing and retrieving data, different from the traditional SQL (relational) databases.
+
+Non-relational databases, also known as NoSQL (Not Only SQL) databases, are a class of database management systems that provide an alternative approach to data storage and retrieval compared to traditional relational databases. Here are the key characteristics of non-relational databases:
+
+Flexible Data Models: Non-relational databases offer flexible data models that allow for storing and retrieving data with varying structures. They can handle semi-structured, unstructured, or polymorphic data, making them suitable for scenarios where data requirements evolve or lack a fixed schema.
+
+Horizontal Scalability: Non-relational databases are designed to scale horizontally, meaning they can handle increasing amounts of data and traffic by distributing the workload across multiple servers or nodes. This makes them well-suited for high-scale applications with growing data needs.
+
+High Performance: Non-relational databases prioritize performance, often optimizing for fast read and write operations. They achieve this by using various techniques such as denormalization, caching, in-memory storage, and efficient data retrieval algorithms.
+
+No Fixed Relationships: Unlike relational databases that rely on rigid table structures and enforce relationships through foreign keys, non-relational databases typically avoid complex joins and instead encourage denormalization. Related data can be stored together in a single document or referenced via simpler mechanisms like key-value pairs or nested structures.
+
+Schemaless or Dynamic Schema: Non-relational databases allow for a dynamic or schemaless approach to data, where the structure of each record (document) can vary. This flexibility enables agile development and easy adaptation to changing data requirements.
+
+Distributed Architecture: Many non-relational databases are designed to work in distributed environments, supporting automatic sharding and replication. They can distribute data across multiple servers or clusters, providing scalability, fault tolerance, and high availability.
+
+Wide Range of Data Models: Non-relational databases come in various types, including key-value stores, document stores, columnar databases, graph databases, and more. Each type has its own data model optimized for specific use cases, allowing developers to choose the most suitable model based on their requirements.
+
+
+MongoDB is often preferred over SQL databases in the following scenarios:
+
+Flexible and evolving data models: If your application's data structures are subject to frequent changes or have varying fields and relationships, MongoDB's flexible schema allows for easier and faster adaptation without requiring complex migrations. This is particularly useful in agile development environments or when dealing with rapidly changing requirements.
+
+Rapid prototyping and development: MongoDB's document-oriented nature allows developers to work with data structures that closely resemble their code, reducing the impedance mismatch between the application and the database. This can accelerate development cycles, simplify data modeling, and facilitate iterative prototyping.
+
+High scalability and performance: MongoDB's distributed architecture and horizontal scaling capabilities make it suitable for handling large-scale applications with high write/read workloads. It can scale easily by adding additional nodes to the cluster, allowing for seamless growth as data and traffic increase.
+
+Unstructured or semi-structured data: If your application deals with data that doesn't fit neatly into a fixed schema, such as documents with varying fields or nested structures, MongoDB's document-oriented approach provides flexibility and simplicity for storing and querying such data. Examples include content management systems, social media platforms, or data-driven applications with user-generated content.
+
+Real-time analytics and logging: MongoDB's document-based structure and support for indexing enable efficient storage and retrieval of log data, sensor data, user-generated content, and other forms of semi-structured or unstructured data. It allows for fast, ad-hoc querying and analysis of large volumes of data.
+
+Geospatial data and location-based services: MongoDB has native support for geospatial indexing and querying, making it a preferred choice for applications dealing with location-based services, mapping, or spatial data analysis. It can efficiently handle queries related to proximity, distance, and geospatial relationships.
+
+Cloud-native and microservices architectures: MongoDB's scalability, flexibility, and compatibility with cloud platforms make it well-suited for cloud-native applications and microservices architectures. It integrates well with modern development frameworks and tools, enabling developers to build scalable, distributed systems.
+
+Q2. State and Explain the features of MongoDB.
+MongoDB offers several key features that contribute to its popularity and usefulness in various applications. Here are the main features of MongoDB:
+
+Document-Oriented: MongoDB is a document-oriented database, which means it stores data in flexible, JSON-like documents called BSON (Binary JSON). Each document can have a different structure, allowing for easy storage and retrieval of complex and dynamic data.
+
+Flexible Schema: MongoDB has a flexible schema, allowing documents in a collection to have different fields and structures. This schema-less nature enables easy evolution of data models without requiring explicit schema migrations.
+
+Scalability and High Performance: MongoDB is designed to scale horizontally by distributing data across multiple servers or shards. It supports automatic sharding and provides high availability through replica sets. This architecture allows for seamless scalability and efficient handling of large amounts of data and high read/write workloads.
+
+Ad Hoc Queries: MongoDB supports powerful and flexible queries using a rich query language. It allows for complex filtering, sorting, and aggregation operations on documents. Additionally, MongoDB supports indexing for faster query execution and provides a wide range of query operators to handle various data types and conditions.
+
+Secondary Indexes: MongoDB supports the creation of secondary indexes on specific fields, allowing for efficient querying and sorting based on those fields. Indexes can significantly improve query performance by reducing the amount of data that needs to be scanned.
+
+Geospatial Capabilities: MongoDB has built-in support for geospatial indexing and querying, making it suitable for location-based applications. It supports various geospatial queries, including finding points within a certain radius, bounding box queries, and more.
+
+Full-Text Search: MongoDB provides a powerful text search engine that allows for efficient full-text search queries on textual data. It supports text indexing, stemming, language-specific analyzers, and advanced search features.
+
+Aggregation Framework: MongoDB's Aggregation Framework allows for advanced data processing and analysis. It supports a wide range of operations like grouping, filtering, projecting, joining, and more. The Aggregation Framework enables complex data manipulations and transformations within the database.
+
+Transactions: Starting from version 4.0, MongoDB introduced multi-document ACID transactions, allowing for the atomic execution of multiple operations across multiple documents or collections. Transactions ensure data consistency and integrity, making MongoDB suitable for applications with complex transactional requirements.
+
+High Availability and Data Replication: MongoDB provides automatic and configurable data replication through replica sets. Replica sets consist of multiple copies of data distributed across different servers. If one server fails, the replica set automatically promotes a secondary server to ensure continuous availability and data redundancy.
+
+These features make MongoDB a versatile and powerful database system, capable of handling a wide range of applications and use cases. Its flexibility, scalability, and rich querying capabilities are particularly valuable in scenarios where the data model is dynamic, performance is crucial, and horizontal scaling is required.
+
+Q3. Write a code to connect MongoDB to Python. Also, create a database and a collection in MongoDB.
+For Creating a Database and Collection in Mongodb :
+
+First we create an account and login in Mongodb
+Then go to Database and click on build a Database
+Now we create a database with our required sepecifications(curently we use M0 and aws and the nearest residing location as server)
+Now assign an username and password which will provide us admin access
+Now add 0.0.0.0/0 in IP access list so we can access it from our local pc
+Done your database is created
+Now we use the code to connect to our MongoDb databse
+pip install pymongo
+Collecting pymongo
+  Downloading pymongo-4.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (648 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 648.9/648.9 kB 17.2 MB/s eta 0:00:0000:01
+Collecting dnspython<3.0.0,>=1.16.0
+  Downloading dnspython-2.3.0-py3-none-any.whl (283 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 283.7/283.7 kB 33.5 MB/s eta 0:00:00
+Installing collected packages: dnspython, pymongo
+Successfully installed dnspython-2.3.0 pymongo-4.4.0
+Note: you may need to restart the kernel to use updated packages.
+import pymongo
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+uri = "mongodb+srv://rachit1:rachit19@cluster0.la8lnzk.mongodb.net/?retryWrites=true&w=majority"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+Pinged your deployment. You successfully connected to MongoDB!
+client
+MongoClient(host=['ac-fz8n4u7-shard-00-00.la8lnzk.mongodb.net:27017', 'ac-fz8n4u7-shard-00-02.la8lnzk.mongodb.net:27017', 'ac-fz8n4u7-shard-00-01.la8lnzk.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, retrywrites=True, w='majority', authsource='admin', replicaset='atlas-fj41kc-shard-0', tls=True, server_api=<pymongo.server_api.ServerApi object at 0x7fa2901cdc90>)
+client = pymongo.MongoClient(uri)
+db = client['college']
+collection_create= db["my_record"]
+Q4. Using the database and the collection created in question number 3, write a code to insert one record,and insert many records. Use the find() and find_one() methods to print the inserted record.
+data = { "name" : "rachit" , 
+        "age" : "22" , 
+        "dob" : "12/12/2001"
+}
+collection_create.insert_one(data)
+<pymongo.results.InsertOneResult at 0x7fa290254130>
+data3 = [
+    {"name" : "rachit" , "age" : "21" ,  "dob" : "01/12/2001"},
+    {"name" : "sam" , "age" : "20" ,  "dob" : "01/11/2000"},
+    {"name" : "jack" , "age" : "20" ,  "dob" : "04/10/2000"},
+    {"name" : "ram" , "age" : "21" ,  "dob" : "02/10/2001"},
+    {"name" : "ramesh" , "age" : "21" ,  "dob" : "04/10/2001"}]
+collection_create.insert_many(data3)
+<pymongo.results.InsertManyResult at 0x7fa2b13c15a0>
+for i in collection_create.find():
+    print(i)
+    
+{'_id': ObjectId('649d2af15b63fe216d9fa24e'), 'name': 'rachit', 'age': '22', 'dob': '12/12/2001'}
+{'_id': ObjectId('649d2b955b63fe216d9fa24f'), 'name': 'rachit', 'age': '21', 'dob': '01/12/2001'}
+{'_id': ObjectId('649d2b955b63fe216d9fa250'), 'name': 'sam', 'age': '20', 'dob': '01/11/2000'}
+{'_id': ObjectId('649d2b955b63fe216d9fa251'), 'name': 'jack', 'age': '20', 'dob': '04/10/2000'}
+{'_id': ObjectId('649d2b955b63fe216d9fa252'), 'name': 'ram', 'age': '21', 'dob': '02/10/2001'}
+{'_id': ObjectId('649d2b955b63fe216d9fa253'), 'name': 'ramesh', 'age': '21', 'dob': '04/10/2001'}
+collection_create.find_one()
+{'_id': ObjectId('649d2af15b63fe216d9fa24e'),
+ 'name': 'rachit',
+ 'age': '22',
+ 'dob': '12/12/2001'}
+Q5. Explain how you can use the find() method to query the MongoDB database. Write a simple code to demonstrate this.
+for i in collection_create.find({"age" : "20"}):
+    print(i)
+{'_id': ObjectId('649d2b955b63fe216d9fa250'), 'name': 'sam', 'age': '20', 'dob': '01/11/2000'}
+{'_id': ObjectId('649d2b955b63fe216d9fa251'), 'name': 'jack', 'age': '20', 'dob': '04/10/2000'}
+Q6. Explain the sort() method. Give an example to demonstrate sorting in MongoDB.
+for i in collection_create.find().sort('age',pymongo.ASCENDING):
+    print(i)
+{'_id': ObjectId('649d2b955b63fe216d9fa250'), 'name': 'sam', 'age': '20', 'dob': '01/11/2000'}
+{'_id': ObjectId('649d2b955b63fe216d9fa251'), 'name': 'jack', 'age': '20', 'dob': '04/10/2000'}
+{'_id': ObjectId('649d2b955b63fe216d9fa24f'), 'name': 'rachit', 'age': '21', 'dob': '01/12/2001'}
+{'_id': ObjectId('649d2b955b63fe216d9fa252'), 'name': 'ram', 'age': '21', 'dob': '02/10/2001'}
+{'_id': ObjectId('649d2b955b63fe216d9fa253'), 'name': 'ramesh', 'age': '21', 'dob': '04/10/2001'}
+{'_id': ObjectId('649d2af15b63fe216d9fa24e'), 'name': 'rachit', 'age': '22', 'dob': '12/12/2001'}
+Q7. Explain why delete_one(), delete_many(), and drop() is used.
+These methods are used to remove data or collections from the database :
+
+The delete_one() method is used to delete a single document that matches a specified filter criteria. It removes the first document that matches the filter and stops after deleting the first occurrence.
+Use cases for delete_one() :
+Deleting a specific record or document based on a unique identifier or a specific condition.
+Removing a single occurrence of a duplicate record or document.
+Removing a specific document to enforce a business rule or maintain data integrity.
+
+The delete_many() method is used to delete multiple documents that match a specified filter criteria. It removes all documents that satisfy the filter condition and continues until all matching documents are deleted.
+Use cases for delete_many() :
+Deleting multiple records or documents that meet a specific condition or criteria.
+Bulk deletion of outdated or irrelevant data.
+Cleaning up a collection by removing a group of related documents.
+
+The drop() method is used to remove an entire collection from the database. It permanently deletes the collection and all the associated documents.
+Use cases for drop() :
+Deleting an entire collection to start fresh or clean up unnecessary data.
+Dropping a collection to restructure or redefine its schema.
+Removing a temporary or redundant collection.
